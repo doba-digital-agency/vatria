@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20260206152128">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260213150846">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,7 +66,7 @@
 							<span></span>
 						</button>
 					</div>
-					<a href="" class="header__btn">Kostenlose Beratung</a>
+					<a href="" data-popup="#popup" class="header__btn">Kostenlose Beratung</a>
 				</div>
 			</div>
 		</header>
@@ -132,7 +132,7 @@
 								</li>
 							</ul>
 							<div class="contact-card__actions">
-								<a href="" class="contact-card__btn">Kostenlose Beratung</a>
+								<a href="" data-popup="#popup" class="contact-card__btn">Kostenlose Beratung</a>
 								<a href="" class="contact-card__whatsup whatsup-btn">
 									<img src="img/whatsup-green-icon.svg" alt="whatsup" class="whatsup-btn__icon" />
 									<p class="whatsup-btn__text">WhatsApp Contact</p>
@@ -264,7 +264,7 @@
 									Auswirkungen – ohne vorgegebene Zielrichtung.
 								</p>
 							</div>
-							<a href="" class="items-competencies__link">
+							<a href="" data-popup="#popup" class="items-competencies__link">
 								<span>Erstgespräch anfragen</span>
 								<img src="img/icon-arrow.svg" alt="Image" />
 							</a>
@@ -340,7 +340,7 @@
 									Ziel.
 								</p>
 							</div>
-							<a href="" class="right-challenges__btn">
+							<a href="" data-popup="#popup" class="right-challenges__btn">
 								<span>Erstgespräch anfragen</span>
 								<img src="img/icon-arrow.svg" alt="Image" />
 							</a>
@@ -444,7 +444,7 @@
 								</p>
 							</div>
 							<div data-da=".left-aboutus, 768, 2" class="right-aboutus__actions actions-aboutus">
-								<a href="" class="actions-aboutus__btn">
+								<a href="" data-popup="#popup" class="actions-aboutus__btn">
 									<span>Erstgespräch zur Klärung Ihrer Situation anfragen
 									</span>
 									<img src="img/icon-arrow.svg" alt="arrow" /></a>
@@ -714,8 +714,34 @@
 				</div>
 			</section>
 			<section class="road">
+				<img src="img/foru-img1.svg" alt="" class="road__bg" />
+				<img src="img/foru-img1.svg" alt="" class="road__bg2" />
 				<div class="road__container">
-					<div class="svg-section">
+					<h2 class="road__title">Step by step</h2>
+
+					<div class="road__stage">
+						<svg class="road__path" viewBox="0 0 1345 1357" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path class="svg-step svg-step--base" d="M911.5 0.5
+C911.5 24.2643 930.736 43.5444 954.5 43.5993
+L1251.11 44.2842
+C1302.72 44.4034 1344.5 86.2781 1344.5 137.892
+C1344.5 189.59 1302.59 231.5 1250.89 231.5
+H442.5" />
+
+							<path class="svg-step svg-step--base" d="M442.5 231.5L227 231.5C175.361 231.5 133.5 273.361 133.5 325C133.5 376.639 175.361 418.5 227 418.5H566.5" />
+
+							<path class="svg-step svg-step--base" d="M566.5 418.5L1117.84 418.5C1169.57 418.5 1211.5 460.431 1211.5 512.156C1211.5 563.759 1169.76 605.639 1118.16 605.811L911.5 606.5" />
+
+							<path class="svg-step svg-step--base" d="M911.5 606.5L93.6095 606.5C42.1865 606.5 0.5 648.187 0.5 699.61C0.5 750.949 42.0563 792.601 93.3957 792.719L433.5 793.5" />
+
+							<path class="svg-step svg-step--base" d="M433.5 794.5L1250.89 794.5C1302.59 794.5 1344.5 836.41 1344.5 888.108C1344.5 939.722 1302.72 981.597 1251.11 981.716L911.5 982.5" />
+
+							<path class="svg-step svg-step--base" d="M911.5 982.499L343.755 982.5C292.252 982.5 250.5 1024.25 250.5 1075.76C250.5 1127.06 291.944 1168.73 343.249 1169.01L433.5 1169.5" />
+
+							<path class="svg-step svg-step--base" d="M433.5 1169.5L1251 1169.5C1302.64 1169.5 1344.5 1211.36 1344.5 1263C1344.5 1314.64 1302.64 1356.5 1251 1356.5H827.5" />
+
+							<path class="svg-step svg-step--base" d="M1344.5 0.500072L517.5 0.5" />
+						</svg>
 						<svg class="scroll-svg" viewBox="0 0 1345 1357" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path class="svg-step svg-step--base" d="M911.5 0.5
 C911.5 24.2643 930.736 43.5444 954.5 43.5993
@@ -757,17 +783,617 @@ H442.5" />
 
 							<path data-step="8" class="svg-step svg-step--active" d="M1344.5 0.500072L517.5 0.5" />
 						</svg>
+						<div class="road__items">
+							<div class="road__item item-road">
+								<div class="item-road__number">01</div>
+								<div class="item-road__text">
+									<h4 class="item-road__title">Erstgespräch</h4>
+									<p class="item-road__descriptions">
+										Kostenlose und unverbindliche Ersteinschätzung Ihrer
+										Situation.
+									</p>
+								</div>
+							</div>
+							<div class="road__item item-road">
+								<div class="item-road__number">02</div>
+								<div class="item-road__text">
+									<h4 class="item-road__title">Vertrag & Beauftragung</h4>
+									<p class="item-road__descriptions">
+										Klare Vereinbarung über Umfang, Ziel und Zusammenarbeit.
+									</p>
+								</div>
+							</div>
+							<div class="road__item item-road">
+								<div class="item-road__number">03</div>
+								<div class="item-road__text">
+									<h4 class="item-road__title">Eigentums & Statusprüfung</h4>
+									<p class="item-road__descriptions">
+										Analyse von Eigentum, Unterlagen, Kataster und Widmung.
+									</p>
+								</div>
+							</div>
+							<div class="road__item item-road">
+								<div class="item-road__number">04</div>
+								<div class="item-road__text">
+									<h4 class="item-road__title">Rechtliche Klärungen</h4>
+									<p class="item-road__descriptions">
+										Abstimmung und Korrekturen über Notar, Kataster und
+										Behörden.
+									</p>
+								</div>
+							</div>
+							<div class="road__item item-road">
+								<div class="item-road__number">05</div>
+								<div class="item-road__text">
+									<h4 class="item-road__title">Entwicklung & Optionen</h4>
+									<p class="item-road__descriptions">
+										Prüfung möglicher Schritte wie Ordnung, Nutzung,
+										Entwicklung oder Umwidmung.
+									</p>
+								</div>
+							</div>
+							<div class="road__item item-road">
+								<div class="item-road__number">06</div>
+								<div class="item-road__text">
+									<h4 class="item-road__title">
+										Abschluss nach Zieldefinition
+									</h4>
+									<p class="item-road__descriptions">
+										Ziel, Umfang und Vergütung werden individuell definiert
+										und transparent pro Projektphase vereinbart.
+									</p>
+								</div>
+							</div>
+							<div class="road__item-call call-item-road">
+								<div class="call-item-road__text">
+									<h4 class="call-item-road__title">
+										Erstgespräch zur Klärung Ihrer Situation anfragen
+									</h4>
+									<p class="call-item-road__descriptions">
+										Unverbindlich • kostenlos • vertraulich
+									</p>
+								</div>
+								<a href="" data-popup="#popup" class="call-item-road__btn">Kostenlose Beratung</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="case">
+				<div class="case__container">
+					<h2 class="case__title">Case Studies</h2>
+					<!-- Оболонка слайдера -->
+					<div class="case__slider swiper">
+						<!-- Частина слайдера, що рухається -->
+						<div class="case__wrapper swiper-wrapper">
+							<!-- Слайд -->
+							<div class="case__slide swiper-slide slide-case">
+								<img src="img/case-img.png" alt="image" class="slide-case__image" />
+								<div class="slide-case__info info-case">
+									<h3 class="info-case__title">Example of heading</h3>
+									<div class="info-case__content">
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">Situation:</h4>
+											<p class="info-case__descriptions">
+												Inherited property with unclear ownership documents
+											</p>
+										</div>
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">What we did:</h4>
+											<p class="info-case__descriptions">
+												Full ownership verification and cadastral corrections
+											</p>
+										</div>
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">Result:</h4>
+											<p class="info-case__descriptions">
+												Clear ownership documentation completed
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Слайд -->
+							<div class="case__slide swiper-slide slide-case">
+								<img src="img/case-img.png" alt="image" class="slide-case__image" />
+								<div class="slide-case__info info-case">
+									<h3 class="info-case__title">Example of heading</h3>
+									<div class="info-case__content">
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">Situation:</h4>
+											<p class="info-case__descriptions">
+												Inherited property with unclear ownership documents
+											</p>
+										</div>
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">What we did:</h4>
+											<p class="info-case__descriptions">
+												Full ownership verification and cadastral corrections
+											</p>
+										</div>
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">Result:</h4>
+											<p class="info-case__descriptions">
+												Clear ownership documentation completed
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Слайд -->
+							<div class="case__slide swiper-slide slide-case">
+								<img src="img/case-img.png" alt="image" class="slide-case__image" />
+								<div class="slide-case__info info-case">
+									<h3 class="info-case__title">Example of heading</h3>
+									<div class="info-case__content">
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">Situation:</h4>
+											<p class="info-case__descriptions">
+												Inherited property with unclear ownership documents
+											</p>
+										</div>
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">What we did:</h4>
+											<p class="info-case__descriptions">
+												Full ownership verification and cadastral corrections
+											</p>
+										</div>
+										<div class="info-case__item">
+											<h4 class="info-case__subtitle">Result:</h4>
+											<p class="info-case__descriptions">
+												Clear ownership documentation completed
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div data-da=".case__navi-mob, 768, 1" class="case__navigation">
+						<!-- Якщо потрібна навігація (ліворуч/праворуч) -->
+						<button type="button" class="case-button-prev">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+								<path d="M30.375 16H1.625" stroke="#2B2824" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M15.043 29.4163L1.6263 15.9997L15.043 2.58301" stroke="#2B2824" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</button>
+						<button type="button" class="case-button-next">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+								<path d="M1.625 16H30.375" stroke="#2B2824" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M16.957 29.4163L30.3737 15.9997L16.957 2.58301" stroke="#2B2824" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</button>
+					</div>
+
+					<!-- Якщо потрібна пагінація -->
+					<div data-da=".case__navi-mob, 768, 0" class="case-pagination"></div>
+					<div class="case__navi-mob"></div>
+				</div>
+			</section>
+			<section class="testimonials">
+				<div class="testimonials__container">
+					<h2 class="testimonials__title">Testimonials</h2>
+					<div class="testimonials__sponsors sponsors-testimonials">
+						<div class="sponsors-testimonials__track">
+							<div class="sponsors-testimonials__card card-sponsor">
+								<div class="card-sponsor__image">
+									<img src="img/testimonials-img1.png" alt="Image" />
+								</div>
+								<div class="card-sponsor__text">
+									<h5 class="card-sponsor__title">Example of name</h5>
+									<p class="card-sponsor__description">
+										Here you will find our client's review of the service and
+										services we provided, how the client's life changed after
+										working with Vatria Consult.
+									</p>
+								</div>
+							</div>
+							<div class="sponsors-testimonials__card card-sponsor">
+								<div class="card-sponsor__image">
+									<img src="img/testimonials-img2.png" alt="Image" />
+								</div>
+								<div class="card-sponsor__text">
+									<h5 class="card-sponsor__title">Example of name</h5>
+									<p class="card-sponsor__description">
+										Here you will find our client's review of the service and
+										services we provided, how the client's life changed after
+										working with Vatria Consult.
+									</p>
+								</div>
+							</div>
+							<div class="sponsors-testimonials__card card-sponsor">
+								<div class="card-sponsor__image">
+									<img src="img/testimonials-img3.png" alt="Image" />
+								</div>
+								<div class="card-sponsor__text">
+									<h5 class="card-sponsor__title">Example of name</h5>
+									<p class="card-sponsor__description">
+										Here you will find our client's review of the service and
+										services we provided, how the client's life changed after
+										working with Vatria Consult.
+									</p>
+								</div>
+							</div>
+							<div class="sponsors-testimonials__card card-sponsor">
+								<div class="card-sponsor__image">
+									<img src="img/testimonials-img4.png" alt="Image" />
+								</div>
+								<div class="card-sponsor__text">
+									<h5 class="card-sponsor__title">Example of name</h5>
+									<p class="card-sponsor__description">
+										Here you will find our client's review of the service and
+										services we provided, how the client's life changed after
+										working with Vatria Consult.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="faq">
+				<img src="img/foru-img1.svg" alt="" class="faq__bg" />
+				<div class="faq__container">
+					<h2 class="faq__title">FAQs</h2>
+					<div class="faq__items">
+						<div data-spollers class="faq__spollers spollers-faq spollers">
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span>
+										Ist ein Verkauf meiner Immobilie oder meines Grundstücks
+										zwingend vorgesehen?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Nein. Ein Verkauf ist keine Voraussetzung und nicht immer
+									die sinnvollste Lösung. Unser Auftrag besteht darin,
+									Struktur, Klarheit und Entscheidungsgrundlagen zu schaffen –
+									das Ziel wird individuell definiert.
+								</div>
+							</details>
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span> Wie sind meine Daten und Unterlagen geschützt?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Der Umgang mit sensiblen Informationen erfolgt streng nach
+									DSGVO und ausschließlich im Rahmen der vertraglich
+									vereinbarten Zusammenarbeit. Alle Unterlagen werden
+									vertraulich behandelt, strukturiert dokumentiert und nur an
+									jene Stellen ausgehändigt, die für den jeweiligen Schritt
+									rechtlich erforderlich sind.
+								</div>
+							</details>
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span> Werden Originaldokumente benötigt?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Ja, in bestimmten Phasen sind Originalunterlagen
+									erforderlich, z. B. bei notariellen Vorgängen oder
+									Katastereintragungen. Wir prüfen im Vorfeld genau, welche
+									Dokumente wann benötigt werden, bereiten diese vollständig
+									vor und stellen sicher, dass sie korrekt und zweckgebunden
+									eingesetzt werden.
+								</div>
+							</details>
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span> Benötigen Sie eine Vollmacht oder Prokura?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Für viele Behörden- und Notariatswege ist eine Vollmacht
+									(Prokura / împuternicire) notwendig. Diese wird von uns
+									inhaltlich vorbereitet, rechtlich abgestimmt und transparent
+									erklärt. Sie behalten jederzeit die Kontrolle darüber, wofür
+									und in welchem Umfang sie gilt.
+								</div>
+							</details>
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span> Wie läuft die Zusammenarbeit rechtlich ab?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Nach der kostenlosen Ersteinschätzung wird die
+									Zusammenarbeit vertraglich klar geregelt. Der Vertrag
+									definiert Ziel, Umfang, Zuständigkeiten, Datenschutz,
+									Vergütung und die Art der Bevollmächtigung. So ist für beide
+									Seiten jederzeit Klarheit und Rechtssicherheit gegeben.
+								</div>
+							</details>
+						</div>
+						<div data-spollers class="faq__spollers spollers-faq spollers">
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span>
+										Welche rechtlichen Rahmenbedingungen gelten für das
+										Unternehmen?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Vatria Consult ist eine rumänische S.R.L. (Societate cu
+									Răspundere Limitată) und erfüllt alle gesetzlichen,
+									steuerlichen und unternehmensrechtlichen Anforderungen in
+									Rumänien. Die Zusammenarbeit erfolgt transparent,
+									nachvollziehbar und im Einklang mit allen geltenden
+									Bestimmungen.
+								</div>
+							</details>
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span>
+										Übernehmen Sie auch Wertoptimierung und Entwicklung?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Ja. Ein wesentlicher Mehrwert unserer Arbeit liegt in der
+									Analyse von Potenzialen, etwa durch Nutzungsszenarien,
+									Entwicklung oder – wo rechtlich möglich – Umwidmung. Diese
+									strategische Perspektive fehlt häufig, wenn Themen nur
+									punktuell oder ohne Gesamtblick bearbeitet werden.
+								</div>
+							</details>
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span>
+										Was passiert, wenn mein Fall besonders komplex ist?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Gerade komplexe Fälle sind unser Kerngeschäft. Durch
+									fundierte Analyse, strukturierte Projektsteuerung und
+									fachübergreifende Koordination schaffen wir Klarheit auch
+									dort, wo Einzelversuche oft scheitern oder ins Leere laufen.
+								</div>
+							</details>
+							<details class="spollers-faq__item spollers__item">
+								<summary class="spollers-faq__title spollers__title">
+									<span> Wo hat Vatria Consult ihren Firmensitz?</span>
+								</summary>
+								<div class="spollers-faq__body spollers__body">
+									Die Vatria Consult S.R.L. hat ihren Hauptsitz in Brașov,
+									Rumänien, und unterliegt vollständig dem rumänischen
+									Gesellschafts- und Wirtschaftsrecht. Zusätzlich betreiben
+									wir eine Zweigstelle in Österreich, um eine enge Betreuung
+									unserer Kunden im deutschsprachigen Raum sicherzustellen.
+								</div>
+							</details>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="contact">
+				<div class="contact__container">
+					<div class="contact__contact-form contact-form-contact">
+						<div class="contact-form-contact__titles">
+							<h2 class="contact-form-contact__title">
+								Get your free consultation
+							</h2>
+							<p class="contact-form-contact__subtitle">
+								Fill out the form and we'll get back to you within 24 hours
+							</p>
+						</div>
+						<form action="" class="contact-form-contact__form">
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__item item-form">
+									<label for="" class="item-form__label">Full name</label>
+									<input type="text" placeholder="Your full name" class="item-form__field" />
+								</div>
+								<div class="column-form__item item-form">
+									<label for="" class="item-form__label">Phone number</label>
+									<input type="tel" placeholder="+ 49 " class="item-form__field" />
+								</div>
+							</div>
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__item item-form">
+									<label for="" class="item-form__label">Email Adress</label>
+									<input type="text" placeholder="vatria.consult" class="item-form__field" />
+								</div>
+								<div class="column-form__item item-form">
+									<label for="property-type" class="item-form__label">
+										Type of property
+									</label>
+									<div class="item-form__select-wrapper item-form__field">
+										<select id="property-type" name="property_type" class="item-form__select">
+											<option value="" disabled selected>
+												Select property type
+											</option>
+											<option value="apartment">Apartment</option>
+											<option value="house">House</option>
+											<option value="commercial">Commercial property</option>
+											<option value="land">Land / Plot</option>
+											<option value="investment">Investment property</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__item-textarea item-form">
+									<label for="" class="item-form__label">Your message</label>
+									<textarea name="" id="" placeholder="Tell us about your property situation..." class="item-form__textarea"></textarea>
+								</div>
+							</div>
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__check">
+									<input type="checkbox" class="column-form__checkbox" />
+									<p class="column-form__checktext">
+										I agree to the processing of my personal data according to
+										the
+										<a href="" class="column-form__link gold">Privacy Policy</a>
+										(DSGVO)
+									</p>
+								</div>
+							</div>
+							<div class="contact-form-contact__actions actions-form">
+								<a href="" class="actions-form__btn">Formular senden</a>
+								<a href="" class="actions-form__whatsup">
+									<img src="img/whatsup-icon-black.svg" alt="icon" class="actions-form__icon" />
+									<span class="actions-form__textlink">WhatsApp Contact</span>
+								</a>
+							</div>
+						</form>
 					</div>
 				</div>
 			</section>
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
+				<div class="footer__top top-footer">
+					<div class="top-footer__info info-footer">
+						<a href="" class="info-footer__logo">
+							<img src="img/footer-logo.svg" alt="logo" class="info-footer__img" />
+						</a>
+						<div class="info-footer__items">
+							<p class="info-footer__info">Registration Number: J40/12345/2025</p>
+							<p class="info-footer__info">VAT: RO12345678</p>
+							<p class="info-footer__info">Bucharest, Romania</p>
+						</div>
+					</div>
+					<div class="top-footer__menus">
+						<div class="top-footer__menu menu-footer">
+							<h2 class="menu-footer__title">Navigation</h2>
+							<ul class="menu-footer__list">
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">Dienstleistungen</a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">Fälle</a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">FAQ</a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">Kundenstimmen</a>
+								</li>
+							</ul>
+						</div>
+						<div class="top-footer__menu menu-footer">
+							<h2 class="menu-footer__title">Legal</h2>
+							<ul class="menu-footer__list">
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">Impressum</a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">Privacy Policy</a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">Terms & Conditions</a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link">DSGVO Compliance</a>
+								</li>
+							</ul>
+						</div>
+						<div class="top-footer__menu menu-footer">
+							<h2 class="menu-footer__title">Contact</h2>
+							<ul class="menu-footer__list">
+								<li class="menu-footer__li">
+									<a href="mailto:info@example.com" class="menu-footer__link"><img src="img/icon-mail.svg" alt="Image" /><span>info@example.com</span></a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="tel:+40 123 456 789" class="menu-footer__link"><img src="img/icon-phone.svg" alt="Image" /><span>+40 123 456 789</span></a>
+								</li>
+								<li class="menu-footer__li">
+									<a href="" class="menu-footer__link"><img src="img/icon-whatsup.svg" alt="Image" /><span>WhatsApp
+										</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="footer__bottom bottom-footer">
+					<p class="bottom-footer__creative">
+						© 2025 Property Vatria Consult. All rights reserved.
+					</p>
+					<p class="bottom-footer__develop">
+						Developed by
+						<a href="https://doba.digital/" class="gold">Doba Digital</a>
+					</p>
+				</div>
 			</div>
 		</footer>
+
 	</div>
-	<script src="js/app.min.js?_v=20260206152128"></script>
-	<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js?_v=20260206152128"></script>
+	<div id="popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__text">
+					<div class="contact__contact-form contact-form-contact">
+						<button data-close type="button" class="popup__close">
+							<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+								<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+							</svg>
+						</button>
+						<div class="contact-form-contact__titles">
+							<h2 class="contact-form-contact__title">
+								Get your free consultation
+							</h2>
+							<p class="contact-form-contact__subtitle">
+								Fill out the form and we'll get back to you within 24 hours
+							</p>
+						</div>
+						<form action="" class="contact-form-contact__form">
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__item item-form">
+									<label for="" class="item-form__label">Full name</label>
+									<input type="text" placeholder="Your full name" class="item-form__field" />
+								</div>
+								<div class="column-form__item item-form">
+									<label for="" class="item-form__label">Phone number</label>
+									<input type="tel" placeholder="+ 49 " class="item-form__field" />
+								</div>
+							</div>
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__item item-form">
+									<label for="" class="item-form__label">Email Adress</label>
+									<input type="text" placeholder="vatria.consult" class="item-form__field" />
+								</div>
+								<div class="column-form__item item-form">
+									<label for="property-type" class="item-form__label">
+										Type of property
+									</label>
+									<div class="item-form__select-wrapper item-form__field">
+										<select id="property-type" name="property_type" class="item-form__select">
+											<option value="" disabled selected>
+												Select property type
+											</option>
+											<option value="apartment">Apartment</option>
+											<option value="house">House</option>
+											<option value="commercial">Commercial property</option>
+											<option value="land">Land / Plot</option>
+											<option value="investment">Investment property</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__item-textarea item-form">
+									<label for="" class="item-form__label">Your message</label>
+									<textarea name="" id="" placeholder="Tell us about your property situation..." class="item-form__textarea"></textarea>
+								</div>
+							</div>
+							<div class="contact-form-contact__column column-form">
+								<div class="column-form__check">
+									<input type="checkbox" class="column-form__checkbox" />
+									<p class="column-form__checktext">
+										I agree to the processing of my personal data according to the
+										<a href="" class="column-form__link gold">Privacy Policy</a>
+										(DSGVO)
+									</p>
+								</div>
+							</div>
+							<div class="contact-form-contact__actions actions-form">
+								<a href="" class="actions-form__btn">Formular senden</a>
+								<a href="" class="actions-form__whatsup">
+									<img src="img/whatsup-icon-black.svg" alt="icon" class="actions-form__icon" />
+									<span class="actions-form__textlink">WhatsApp Contact</span>
+								</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20260213150846"></script>
+	<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js?_v=20260213150846"></script>
 
 	<script>
 		const lenis = new Lenis({
