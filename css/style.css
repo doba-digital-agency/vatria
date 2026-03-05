@@ -517,7 +517,9 @@ body {
 }
 .hero {
   position: relative;
-  z-index: 2
+  z-index: 2;
+  background: url(../img/hero-bg2.webp) no-repeat center;
+  background-size: cover
 }
 .hero::after {
   content: "";
