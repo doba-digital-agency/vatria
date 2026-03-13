@@ -337,7 +337,7 @@ body::after {
   object-fit: contain
 }
 .header {
-  padding: 16px 16px 0;
+  padding: calc(env(safe-area-inset-top) + 16px) 16px 0;
   position: fixed;
   width: 100%;
   z-index: 6
@@ -820,7 +820,6 @@ html {
 }
 body {
   padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
   min-height: 100dvh
 }
 .page-content {
@@ -834,7 +833,8 @@ body {
   top: 0;
   background: url(../img/hero-bg2.webp) no-repeat center;
   background-size: cover;
-  min-height: 100dvh
+  min-height: 100dvh;
+  padding-bottom: env(safe-area-inset-bottom)
 }
 .hero::after {
   content: "";
