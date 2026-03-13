@@ -4346,48 +4346,56 @@
     document.addEventListener("DOMContentLoaded", () => {
         const section = document.querySelector(".road__stage");
         const svg = document.querySelector(".scroll-svg");
-        if (!section || !svg) return;
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        const animatedSteps = Array.from(document.querySelectorAll(".svg-step--active")).sort((a, b) => Number(a.dataset.step) - Number(b.dataset.step));
-        animatedSteps.forEach(step => {
-            const length = step.getTotalLength() + 2;
-            step.dataset.length = length;
-            step.style.strokeDasharray = length;
-            step.style.strokeDashoffset = length;
-        });
-        svg.style.visibility = "visible";
-        window.addEventListener("scroll", () => {
+        const items = document.querySelector(".road__items");
+        const mq = window.matchMedia("(max-width: 768px)");
+        let isMobile = mq.matches;
+        mq.addEventListener("change", e => isMobile = e.matches);
+        let animatedSteps = [];
+        if (section && svg) {
+            animatedSteps = Array.from(document.querySelectorAll(".svg-step--active")).sort((a, b) => Number(a.dataset.step) - Number(b.dataset.step));
+            animatedSteps.forEach(step => {
+                const length = step.getTotalLength() + 2;
+                step.dataset.length = length;
+                step.style.strokeDasharray = length;
+                step.style.strokeDashoffset = length;
+            });
+            svg.style.visibility = "visible";
+        }
+        function updateSVG() {
+            if (!section || !svg || !animatedSteps.length) return;
             const rect = section.getBoundingClientRect();
             const vh = window.innerHeight;
             const startPoint = vh * .4;
-            if (rect.top > startPoint) return;
-            const progress = Math.min(Math.max((startPoint - rect.top) / (rect.height - startPoint), 0), 1);
+            if (rect.top > startPoint) {
+                animatedSteps.forEach(step => {
+                    step.style.strokeDashoffset = Number(step.dataset.length);
+                });
+                return;
+            }
+            const denominator = rect.height - startPoint;
+            if (denominator <= 0) return;
+            const progress = Math.min(Math.max((startPoint - rect.top) / denominator, 0), 1);
             const total = animatedSteps.length;
             if (isMobile) {
                 const activeIndex = Math.floor(progress * total);
-                animatedSteps.forEach((step, index) => {
+                animatedSteps.forEach((step, i) => {
                     const length = Number(step.dataset.length);
-                    if (index < activeIndex) step.style.strokeDashoffset = 0; else if (index === activeIndex) {
-                        const local = progress * total - index;
-                        step.style.strokeDashoffset = length - length * Math.min(Math.max(local, 0), 1);
+                    if (i < activeIndex) step.style.strokeDashoffset = 0; else if (i === activeIndex) {
+                        const local = progress * total - i;
+                        step.style.strokeDashoffset = length * (1 - Math.min(Math.max(local, 0), 1));
                     } else step.style.strokeDashoffset = length;
                 });
             } else {
                 const global = progress * total;
-                animatedSteps.forEach((step, index) => {
+                animatedSteps.forEach((step, i) => {
                     const length = Number(step.dataset.length);
-                    const local = global - index;
-                    if (local <= 0) step.style.strokeDashoffset = length; else if (local >= 1) step.style.strokeDashoffset = 0; else step.style.strokeDashoffset = length - length * local;
+                    const local = global - i;
+                    step.style.strokeDashoffset = local <= 0 ? length : local >= 1 ? 0 : length * (1 - local);
                 });
             }
-        });
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-        const items = document.querySelector(".road__items");
-        if (!items) return;
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        if (!isMobile) return;
-        window.addEventListener("scroll", () => {
+        }
+        function updateMobileLine() {
+            if (!items || !isMobile) return;
             const rect = items.getBoundingClientRect();
             const vh = window.innerHeight;
             const start = vh * .4;
@@ -4397,10 +4405,23 @@
                 items.style.setProperty("--line-height", "0px");
                 return;
             }
-            const totalHeight = rect.height;
             const progress = Math.min(Math.max((start - rect.top) / (rect.height - end), 0), 1);
-            const currentHeight = totalHeight * progress;
+            const currentHeight = rect.height * progress;
             items.style.setProperty("--line-height", `${currentHeight}px`);
+        }
+        updateSVG();
+        updateMobileLine();
+        let ticking = false;
+        window.addEventListener("scroll", () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                updateSVG();
+                updateMobileLine();
+                ticking = false;
+            });
+        }, {
+            passive: true
         });
     });
     document.querySelectorAll(".foru__card").forEach(card => {
@@ -4436,6 +4457,51 @@
         container.addEventListener("mouseenter", () => paused = true);
         container.addEventListener("mouseleave", () => paused = false);
     });
+    const initScrollHeader = () => {
+        const header = document.querySelector(".header");
+        const floatingBurger = document.querySelector(".header__floating-burger");
+        if (!header || !floatingBurger) return;
+        const isDesktop = () => window.innerWidth > 991;
+        const getHideOffset = () => {
+            const firstSection = document.querySelector("section:first-of-type") || document.querySelector("main > *:first-child");
+            return firstSection ? firstSection.offsetHeight * .85 : window.innerHeight * .6;
+        };
+        let ticking = false;
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    if (!isDesktop()) {
+                        header.classList.remove("header--hidden");
+                        floatingBurger.classList.remove("visible");
+                        ticking = false;
+                        return;
+                    }
+                    const scrollY = window.scrollY;
+                    const hideAt = getHideOffset();
+                    if (scrollY > hideAt) {
+                        header.classList.add("header--hidden");
+                        floatingBurger.classList.add("visible");
+                    } else {
+                        header.classList.remove("header--hidden");
+                        floatingBurger.classList.remove("visible");
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+        floatingBurger.addEventListener("click", () => {
+            header.classList.remove("header--hidden");
+            floatingBurger.classList.remove("visible");
+        });
+        window.addEventListener("scroll", onScroll, {
+            passive: true
+        });
+        window.addEventListener("resize", onScroll, {
+            passive: true
+        });
+    };
+    document.addEventListener("DOMContentLoaded", initScrollHeader);
     window["FLS"] = true;
     menuInit();
     spollers();
