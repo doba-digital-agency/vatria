@@ -817,7 +817,8 @@ html {
 }
 body {
   padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom)
+  padding-bottom: env(safe-area-inset-bottom);
+  min-height: 100dvh
 }
 .page-content {
   position: relative;
