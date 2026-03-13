@@ -119,7 +119,9 @@ h6 {
     overflow: auto;
     padding: 6.25rem .9375rem 1.875rem .9375rem;
     transition: left .3s;
-    z-index: 2
+    z-index: 2;
+    -webkit-transform: none!important;
+    transform: none!important
   }
   .menu__body::before {
     content: "";
@@ -340,11 +342,12 @@ body::after {
   width: 100%;
   z-index: 6
 }
-.header--hidden .header__container {
-  -webkit-transform: translateX(calc(-100% - 32px));
-  transform: translateX(calc(-100% - 32px));
-  opacity: 0;
-  pointer-events: none
+@media (min-width:calc(61.99875em + 1px)) {
+  .header--hidden .header__container {
+    left: calc(-100% - 32px);
+    opacity: 0;
+    pointer-events: none
+  }
 }
 .header__floating-burger {
   display: none
@@ -415,13 +418,13 @@ body::after {
   justify-content: space-between;
   padding: 16px;
   position: relative;
-  z-index: 5;
-  transition: opacity .3s ease,-webkit-transform .4s cubic-bezier(.4,0,.2,1);
-  transition: transform .4s cubic-bezier(.4,0,.2,1),opacity .3s ease;
-  transition: transform .4s cubic-bezier(.4,0,.2,1),opacity .3s ease,-webkit-transform .4s cubic-bezier(.4,0,.2,1);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1
+  z-index: 5
+}
+@media (min-width:calc(61.99875em + 1px)) {
+  .header__container {
+    transition: left .4s cubic-bezier(.4,0,.2,1),opacity .3s ease;
+    left: 0
+  }
 }
 .menu-open .header__container {
   padding: 16px
@@ -831,7 +834,7 @@ body {
   top: 0;
   background: url(../img/hero-bg2.webp) no-repeat center;
   background-size: cover;
-  height: 100vh
+  min-height: 100dvh
 }
 .hero::after {
   content: "";
