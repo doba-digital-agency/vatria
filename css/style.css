@@ -412,7 +412,8 @@ body::after {
 .header__container {
   border-radius: 8px;
   border: 1px solid rgba(255,255,255,.2);
-  background: rgba(86,86,86,.81);
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(7px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -848,12 +849,22 @@ body {
   flex-direction: column;
   padding-top: 170px;
   padding-bottom: 29px;
+  overflow: hidden;
   height: 100%;
   justify-content: space-between
 }
-@media (max-width:1280px) {
+@media (min-width:1920px) {
   .hero__container {
-    padding-top: 160px
+    height: 100vh;
+    padding-top: 0;
+    justify-content: center
+  }
+}
+@media (max-width:1340px) {
+  .hero__container {
+    height: 100vh;
+    padding-top: 100px;
+    justify-content: flex-end
   }
 }
 @media (max-width:47.99875em) {
@@ -863,13 +874,17 @@ body {
     padding-bottom: 136px
   }
 }
+.hero__tablet {
+  margin-top: 20px;
+  width: 100%
+}
 .hero__titles {
   display: flex;
   flex-direction: column;
   row-gap: 24px;
   margin-bottom: 50px
 }
-@media (max-width:1280px) {
+@media (max-width:1340px) {
   .hero__titles {
     margin-bottom: 40px
   }
@@ -887,8 +902,8 @@ body {
   letter-spacing: -.42px;
   color: rgba(255,255,255,.8);
   width: 35%;
-  -webkit-transform: translateX(-104%);
-  transform: translateX(-104%)
+  -webkit-transform: translateX(-102%);
+  transform: translateX(-102%)
 }
 .hero__subtitle._watcher-view {
   -webkit-transform: translateX(0);
@@ -938,6 +953,11 @@ body {
   display: flex;
   gap: 8px;
   pointer-events: auto
+}
+@media (max-width:1340px) {
+  .hero__cards {
+    height: 200px
+  }
 }
 @media (max-width:47.99875em) {
   .hero__cards {
@@ -1051,6 +1071,13 @@ body {
   transition: -webkit-transform .5s ease 1s;
   transition: transform .5s ease 1s;
   transition: transform .5s ease 1s,-webkit-transform .5s ease 1s
+}
+@media (max-width:1340px) {
+  .cards-hero__contatc {
+    width: 100%;
+    flex-direction: row;
+    align-items: center
+  }
 }
 @media (max-width:47.99875em) {
   .cards-hero__contatc {
@@ -1557,6 +1584,13 @@ body {
   object-position: 0 -250px;
   z-index: 3
 }
+@media (max-width:1340px) {
+  .item-competencies__img2 {
+    width: 95%;
+    left: 3%;
+    bottom: -55%
+  }
+}
 @media (max-width:47.99875em) {
   .item-competencies__img2 {
     width: 93%;
@@ -1605,6 +1639,11 @@ body {
   line-height: 140%;
   letter-spacing: -1.44px;
   color: #fff
+}
+@media (max-width:1340px) {
+  .item-competencies__title {
+    font-size: 20px
+  }
 }
 @media (max-width:47.99875em) {
   .item-competencies__title {
@@ -1675,6 +1714,11 @@ body {
   margin-top: 16px;
   bottom: -100%;
   transition: all .3s ease
+}
+@media (max-width:1340px) {
+  .item-competencies__description {
+    font-size: 14px
+  }
 }
 @media (max-width:47.99875em) {
   .item-competencies__description {
