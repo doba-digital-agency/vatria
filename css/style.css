@@ -108,14 +108,18 @@ h6 {
   min-width: 0;
   grid-column: 3/4
 }
+.menu-open .header__container {
+  backdrop-filter: none
+}
 @media (max-width:61.99875em) {
   .menu__body {
     position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    left: -100%;
     top: 0;
+    right: 0;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 100dvh;
     overflow: auto;
     padding: 6.25rem .9375rem 1.875rem .9375rem;
     transition: left .3s;
@@ -431,9 +435,6 @@ body::after {
   padding: 16px
 }
 @media (max-width:47.99875em) {
-  .header__container {
-    background: rgba(86,86,86,.81)
-  }
   .menu-open .header__container {
     padding: 16px
   }
@@ -576,6 +577,13 @@ body::after {
   column-gap: 32px;
   row-gap: 10px;
   padding: 0 15px
+}
+@media (max-width:1080px) {
+  .menu__list {
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px
+  }
 }
 @media (max-width:61.99875em) {
   .menu__list {
@@ -850,8 +858,8 @@ body {
   padding-top: 170px;
   padding-bottom: 29px;
   overflow: hidden;
-  height: 100%;
-  justify-content: space-between
+  height: 100vh;
+  justify-content: flex-end
 }
 @media (min-width:1920px) {
   .hero__container {
@@ -871,7 +879,8 @@ body {
   .hero__container {
     padding-top: 152px;
     row-gap: 14px;
-    padding-bottom: 136px
+    padding-bottom: 136px;
+    justify-content: center
   }
 }
 .hero__tablet {
@@ -912,6 +921,11 @@ body {
   transition: transform .5s ease .8s;
   transition: transform .5s ease .8s,-webkit-transform .5s ease .8s
 }
+@media (max-width:937px) {
+  .hero__subtitle {
+    width: 55%
+  }
+}
 @media (max-width:47.99875em) {
   .hero__subtitle {
     width: 95%
@@ -940,6 +954,16 @@ body {
     width: 75%
   }
 }
+@media (max-width:1080px) {
+  .hero__title {
+    font-size: 54px
+  }
+}
+@media (max-width:937px) {
+  .hero__title {
+    font-size: 53px
+  }
+}
 @media (max-width:47.99875em) {
   .hero__title {
     width: 80%;
@@ -959,9 +983,15 @@ body {
     height: 200px
   }
 }
+@media (max-width:1080px) {
+  .hero__cards {
+    height: 30%
+  }
+}
 @media (max-width:47.99875em) {
   .hero__cards {
-    height: auto
+    height: auto;
+    display: none
   }
 }
 .hero__descriptions {
@@ -1074,9 +1104,7 @@ body {
 }
 @media (max-width:1340px) {
   .cards-hero__contatc {
-    width: 100%;
-    flex-direction: row;
-    align-items: center
+    display: none
   }
 }
 @media (max-width:47.99875em) {
@@ -1085,7 +1113,8 @@ body {
     padding: 0;
     background: rgba(0,0,0,0);
     -webkit-transform: translateY(0);
-    transform: translateY(0)
+    transform: translateY(0);
+    display: flex
   }
 }
 .card-hero__icon {
@@ -1180,7 +1209,8 @@ body {
 @media (max-width:47.99875em) {
   .contact-card__actions {
     flex-direction: column;
-    row-gap: 8px
+    row-gap: 8px;
+    width: 100%
   }
 }
 .contact-card__btn {
@@ -1392,6 +1422,16 @@ body {
 .small {
   height: 212px!important
 }
+@media (max-width:1080px) {
+  .small {
+    height: 227px!important
+  }
+}
+@media (max-width:950px) {
+  .small {
+    height: 234px!important
+  }
+}
 @media (max-width:47.99875em) {
   .small {
     height: 185px!important
@@ -1456,6 +1496,11 @@ body {
   align-items: flex-start;
   gap: 24px
 }
+@media (max-width:850px) {
+  .competencies__items {
+    gap: 12px
+  }
+}
 @media (max-width:47.99875em) {
   .competencies__items {
     flex-direction: column;
@@ -1471,6 +1516,11 @@ body {
   row-gap: 24px;
   width: 33%
 }
+@media (max-width:850px) {
+  .items-competencies__row {
+    gap: 12px
+  }
+}
 @media (max-width:47.99875em) {
   .items-competencies__row {
     width: 100%;
@@ -1484,6 +1534,11 @@ body {
   overflow: hidden;
   height: 200px;
   padding: 24px
+}
+@media (max-width:1080px) {
+  .items-competencies__item {
+    padding: 20px
+  }
 }
 @media (max-width:47.99875em) {
   .items-competencies__item {
@@ -1527,6 +1582,16 @@ body {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg)
 }
+@media (max-width:1080px) {
+  .items-competencies__link {
+    font-size: 20px
+  }
+}
+@media (max-width:950px) {
+  .items-competencies__link {
+    font-size: 15px
+  }
+}
 @media (max-width:47.99875em) {
   .items-competencies__link {
     padding: 16px;
@@ -1550,6 +1615,11 @@ body {
   bottom: -90%;
   transition: all .3s ease
 }
+@media (max-width:1047px) {
+  .reverse {
+    bottom: -82%
+  }
+}
 @media (max-width:47.99875em) {
   .reverse {
     bottom: 0
@@ -1570,6 +1640,15 @@ body {
   left: 0;
   z-index: 1
 }
+@media (max-width:1080px) {
+  .item-competencies__img {
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -webkit-filter: brightness(.6);
+    filter: brightness(.6)
+  }
+}
 .item-competencies__img2 {
   width: 388px;
   height: 259px;
@@ -1589,6 +1668,12 @@ body {
     width: 95%;
     left: 3%;
     bottom: -55%
+  }
+}
+@media (max-width:850px) {
+  .item-competencies__img2 {
+    -o-object-position: 0 -150px;
+    object-position: 0 -150px
   }
 }
 @media (max-width:47.99875em) {
@@ -1613,6 +1698,12 @@ body {
   left: auto;
   opacity: .4
 }
+@media (max-width:1080px) {
+  .item-competencies__img3 {
+    -webkit-filter: brightness(1);
+    filter: brightness(1)
+  }
+}
 .item-competencies__imgmob {
   display: none
 }
@@ -1631,6 +1722,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between
+}
+@media (max-width:991px) {
+  .item-competencies__titles {
+    align-items: flex-start
+  }
 }
 .item-competencies__title {
   font-size: 24px;
@@ -1662,7 +1758,13 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: #fff
+  background: #fff;
+  flex-shrink: 0
+}
+@media (max-width:1080px) {
+  .item-competencies__icon {
+    margin-top: 5px
+  }
 }
 @media (max-width:47.99875em) {
   .item-competencies__icon {
@@ -1718,6 +1820,16 @@ body {
 @media (max-width:1340px) {
   .item-competencies__description {
     font-size: 14px
+  }
+}
+@media (max-width:1080px) {
+  .item-competencies__description {
+    margin-top: 6px
+  }
+}
+@media (max-width:950px) {
+  .item-competencies__description {
+    font-size: 12px
   }
 }
 @media (max-width:47.99875em) {
@@ -4278,6 +4390,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center
+}
+@media (max-width:1100px) {
+  .dot-flex {
+    align-items: flex-start
+  }
+}
+@media (max-width:47.99875em) {
+  .dot-flex {
+    align-items: center
+  }
+}
+@media (max-width:1080px) {
+  .reverse-strategy {
+    bottom: -70%
+  }
 }
 .swiper {
   overflow: hidden
