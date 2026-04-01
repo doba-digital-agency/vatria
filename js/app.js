@@ -4459,40 +4459,57 @@
     });
     const initScrollHeader = () => {
         const header = document.querySelector(".header");
+        const headerContainer = document.querySelector(".header__container");
         const floatingBurger = document.querySelector(".header__floating-burger");
-        if (!header || !floatingBurger) return;
+        const logo = document.querySelector(".header__logo-link");
+        if (!header || !floatingBurger || !headerContainer) return;
         const isDesktop = () => window.innerWidth > 991;
         const getHideOffset = () => {
             const firstSection = document.querySelector("section:first-of-type") || document.querySelector("main > *:first-child");
             return firstSection ? firstSection.offsetHeight * .85 : window.innerHeight * .6;
+        };
+        const hideHeader = () => {
+            header.classList.add("header--hidden");
+            headerContainer.classList.remove("header__container--scrolled");
+            floatingBurger.classList.add("visible");
+        };
+        const showHeader = () => {
+            header.classList.remove("header--hidden");
+            floatingBurger.classList.remove("visible");
         };
         let ticking = false;
         const onScroll = () => {
             if (!ticking) {
                 requestAnimationFrame(() => {
                     if (!isDesktop()) {
-                        header.classList.remove("header--hidden");
-                        floatingBurger.classList.remove("visible");
+                        showHeader();
                         ticking = false;
                         return;
                     }
                     const scrollY = window.scrollY;
                     const hideAt = getHideOffset();
-                    if (scrollY > hideAt) {
-                        header.classList.add("header--hidden");
-                        floatingBurger.classList.add("visible");
-                    } else {
-                        header.classList.remove("header--hidden");
-                        floatingBurger.classList.remove("visible");
-                    }
+                    if (scrollY > hideAt) hideHeader(); else showHeader();
                     ticking = false;
                 });
                 ticking = true;
             }
         };
-        floatingBurger.addEventListener("click", () => {
-            header.classList.remove("header--hidden");
-            floatingBurger.classList.remove("visible");
+        floatingBurger.addEventListener("click", e => {
+            e.stopPropagation();
+            showHeader();
+            headerContainer.classList.add("header__container--scrolled");
+        });
+        document.addEventListener("click", e => {
+            if (!isDesktop()) return;
+            if (header.contains(e.target) || floatingBurger.contains(e.target)) return;
+            hideHeader();
+        });
+        if (logo) logo.addEventListener("click", e => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
         window.addEventListener("scroll", onScroll, {
             passive: true
@@ -4502,6 +4519,14 @@
         });
     };
     document.addEventListener("DOMContentLoaded", initScrollHeader);
+    const logo = document.querySelector(".header__logo");
+    if (logo) logo.addEventListener("click", e => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
     window["FLS"] = true;
     menuInit();
     spollers();

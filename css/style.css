@@ -290,21 +290,22 @@ body::after {
   content: "";
   position: absolute;
   top: 30%;
-  right: 0;
+  right: 10px;
   background-color: #fff;
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
   transition: all .25s ease
 }
 ._spoller-init .spollers__title::after {
   width: 20px;
-  height: 2px
+  height: 2px;
+  -webkit-transform: translate(50%,-50%);
+  transform: translate(50%,-50%)
 }
 ._spoller-init .spollers__title::before {
   width: 2px;
   height: 20px;
-  opacity: 1;
-  right: 17px
+  -webkit-transform: translate(50%,-50%);
+  transform: translate(50%,-50%);
+  opacity: 1
 }
 ._spoller-init .spollers__title._spoller-active::before {
   opacity: 0
@@ -449,6 +450,9 @@ body::after {
     z-index: 4
   }
 }
+.header__logo {
+  cursor: pointer
+}
 .menu-open .header__logo {
   position: relative;
   z-index: 5
@@ -567,6 +571,9 @@ body::after {
   .header__btn {
     display: none
   }
+}
+.header__container--scrolled {
+  background: rgba(0,0,0,.32)
 }
 .menu__list {
   display: flex;
@@ -857,6 +864,7 @@ body {
   flex-direction: column;
   padding-top: 170px;
   padding-bottom: 29px;
+  padding-left: 0;
   overflow: hidden;
   height: 100vh;
   justify-content: flex-end
@@ -880,7 +888,8 @@ body {
     padding-top: 152px;
     row-gap: 14px;
     padding-bottom: 136px;
-    justify-content: center
+    justify-content: center;
+    padding-left: 16px
   }
 }
 .hero__tablet {
@@ -1345,35 +1354,7 @@ body {
   align-items: center;
   -webkit-column-gap: 16px;
   -moz-column-gap: 16px;
-  column-gap: 16px;
-  -webkit-animation: pulse 3s ease-in-out infinite;
-  animation: pulse 3s ease-in-out infinite
-}
-@-webkit-keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1)
-  }
-  50% {
-    opacity: .65;
-    -webkit-transform: scale(.97);
-    transform: scale(.97)
-  }
-}
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1)
-  }
-  50% {
-    opacity: .65;
-    -webkit-transform: scale(.97);
-    transform: scale(.97)
-  }
+  column-gap: 16px
 }
 .dark {
   color: #2b2824!important
@@ -3229,7 +3210,9 @@ body {
 .road__stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 1345/1357
+  aspect-ratio: 1345/1357;
+  padding: 0;
+  margin: 0
 }
 .road__path {
   position: absolute;
@@ -3507,15 +3490,15 @@ body {
 .svg-step {
   fill: none;
   stroke: #fff;
-  stroke-width: 2;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1
+  stroke-width: 2
 }
 .svg-step--base {
   opacity: .2
 }
 .svg-step--active {
-  opacity: 1
+  opacity: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1
 }
 @media (max-width:768px) {
   .road__path,
