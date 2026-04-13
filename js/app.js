@@ -4466,7 +4466,10 @@
         const isDesktop = () => window.innerWidth > 991;
         const getHideOffset = () => {
             const firstSection = document.querySelector("section:first-of-type") || document.querySelector("main > *:first-child");
-            return firstSection ? firstSection.offsetHeight * .85 : window.innerHeight * .6;
+            if (!firstSection) return window.innerHeight * .6;
+            const rect = firstSection.getBoundingClientRect();
+            const height = rect.height || firstSection.scrollHeight;
+            return height > 100 ? height * .85 : window.innerHeight * .6;
         };
         const hideHeader = () => {
             header.classList.add("header--hidden");
@@ -4496,11 +4499,14 @@
         };
         floatingBurger.addEventListener("click", e => {
             e.stopPropagation();
-            showHeader();
-            headerContainer.classList.add("header__container--scrolled");
+            if (window.scrollY >= getHideOffset()) {
+                showHeader();
+                headerContainer.classList.add("header__container--scrolled");
+            }
         });
         document.addEventListener("click", e => {
             if (!isDesktop()) return;
+            if (window.scrollY < getHideOffset()) return;
             if (header.contains(e.target) || floatingBurger.contains(e.target)) return;
             hideHeader();
         });
