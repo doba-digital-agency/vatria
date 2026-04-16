@@ -1001,7 +1001,9 @@ body {
 .hero__cards {
   display: flex;
   gap: 8px;
-  pointer-events: auto
+  pointer-events: auto;
+  overflow: visible;
+  clip-path: inset(0)
 }
 @media (max-width:1386px) {
   .hero__cards {
@@ -1684,7 +1686,16 @@ body {
     height: auto;
     aspect-ratio: 3/2;
     left: 3.5%;
-    bottom: -40%
+    bottom: -100%;
+    -o-object-position: 0 -450px;
+    object-position: 0 -450px
+  }
+}
+@media (max-width:29.99875em) {
+  .item-competencies__img2 {
+    bottom: -40%;
+    -o-object-position: 0 -280px;
+    object-position: 0 -280px
   }
 }
 .item-competencies__img3 {
