@@ -4464,6 +4464,7 @@
         const logo = document.querySelector(".header__logo-link");
         if (!header || !floatingBurger || !headerContainer) return;
         const isDesktop = () => window.innerWidth > 991;
+        const getScrollY = () => window.lenis ? window.lenis.scroll : window.scrollY;
         const getHideOffset = () => {
             const firstSection = document.querySelector("section:first-of-type") || document.querySelector("main > *:first-child");
             if (!firstSection) return window.innerHeight * .6;
@@ -4489,7 +4490,7 @@
                         ticking = false;
                         return;
                     }
-                    const scrollY = window.scrollY;
+                    const scrollY = getScrollY();
                     const hideAt = getHideOffset();
                     if (scrollY > hideAt) hideHeader(); else showHeader();
                     ticking = false;
@@ -4499,14 +4500,12 @@
         };
         floatingBurger.addEventListener("click", e => {
             e.stopPropagation();
-            if (window.scrollY >= getHideOffset()) {
-                showHeader();
-                headerContainer.classList.add("header__container--scrolled");
-            }
+            showHeader();
+            headerContainer.classList.add("header__container--scrolled");
         });
         document.addEventListener("click", e => {
             if (!isDesktop()) return;
-            if (window.scrollY < getHideOffset()) return;
+            if (getScrollY() < getHideOffset()) return;
             if (header.contains(e.target) || floatingBurger.contains(e.target)) return;
             hideHeader();
         });

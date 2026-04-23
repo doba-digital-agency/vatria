@@ -873,7 +873,7 @@ body {
   .hero__container {
     height: 100vh;
     padding-top: 0;
-    justify-content: center
+    justify-content: flex-end
   }
 }
 @media (max-width:1432px) {
@@ -898,7 +898,6 @@ body {
   }
 }
 .hero__tablet {
-  margin-top: 20px;
   width: 100%
 }
 .hero__titles {
