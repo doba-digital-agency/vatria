@@ -847,7 +847,7 @@ body {
 .hero {
   position: sticky;
   top: 0;
-  background: url(../img/hero-bg2.jpg) no-repeat center;
+  background: url(../img/hero-bg2.webp) no-repeat center;
   background-size: cover;
   min-height: 100dvh;
   padding-bottom: env(safe-area-inset-bottom)
@@ -1879,7 +1879,7 @@ body {
   }
 }
 .challenges {
-  background-image: url(../img/red-bg.png);
+  background-image: url(../img/red-bg.webp);
   background-size: cover;
   background-position: center;
   background-attachment: fixed
@@ -2511,7 +2511,7 @@ body {
   color: rgba(43,40,36,.4)
 }
 .partners {
-  background: url(../img/partners-bg.png) no-repeat center;
+  background: url(../img/partners-bg.webp) no-repeat center;
   background-size: cover
 }
 .partners__container {
@@ -4091,7 +4091,7 @@ body {
 .contact {
   position: relative;
   z-index: 1;
-  background: url(../img/form-bg.png) no-repeat center;
+  background: url(../img/form-bg.webp) no-repeat center;
   background-attachment: fixed;
   background-size: cover
 }
